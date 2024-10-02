@@ -1,4 +1,4 @@
-name: Get latest release version
+name: Notify me when new grpc-js release is out
 on:
   schedule:
     - cron: "0 10 * * *"
