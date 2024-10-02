@@ -1,0 +1,17 @@
+name: Get latest release version
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nofify on new release
+        run: |
+          #!/bin/bash
+          tag=$(curl -sL https://api.github.com/repos/grpc/grpc-node/releases/latest | jq -r ".tag_name")
+          if [ "$tag" = "@grpc/grpc-js@1.11.3" ]; then
+            echo its still $tag
+          else
+            curl -d "new version of grpc-js is out" https://ntfy.sh/harshalerts
+          fi
