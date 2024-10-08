@@ -9,9 +9,9 @@ jobs:
       - name: Nofify on new release
         run: |
           #!/bin/bash
-          tag=$(curl -sL https://api.github.com/repos/grpc/grpc-node/releases/latest | jq -r ".tag_name")
-          if [ "$tag" = "@grpc/grpc-js@1.11.3" ]; then
+          tag=$(curl -sL wttr.in/Amsterdam?format=j1 | jq -r ".current_condition[0].FeelsLikeC")
+          if [ "$tag" = "changeme" ]; then
             echo its still $tag
           else
-            curl -d "new version of grpc-js is out" https://ntfy.sh/harshalerts
+            curl -d "$tag" https://ntfy.sh/harshalerts
           fi
