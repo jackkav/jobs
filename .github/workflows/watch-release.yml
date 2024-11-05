@@ -1,7 +1,7 @@
 name: Notify me when new grpc-js release is out
 on:
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 8 * * *"
 jobs:
   get-version:
     runs-on: ubuntu-latest
